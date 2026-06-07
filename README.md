@@ -24,8 +24,7 @@ Project Laravel untuk tugas Pemrograman Web Lanjut Pertemuan 11.
 
 ## Update PT 11 Pak Sandy
 
-Fitur export ditempatkan pada modul Penjualan karena modul ini merupakan modul transaksi utama.
-Export dibuat server-side dari database agar data yang diunduh sesuai dengan data transaksi yang tersimpan dan mengikuti filter pencarian.
+Fitur export ditempatkan pada modul Penjualan.
 
 - Excel: untuk laporan yang dibuka di Microsoft Excel atau LibreOffice.
 - CSV: untuk pertukaran data ringan.
