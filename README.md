@@ -9,7 +9,11 @@ Project Laravel untuk tugas Pemrograman Web Lanjut Pertemuan 11.
 - Program Studi: Teknik Informatika
 - Universitas: Universitas Dian Nusantara
 
-## Modul yang tersedia
+## Modul<img width="1440" height="900" alt="Screenshot 2026-06-07 at 17 13 26" src="https://github.com/user-attachments/assets/e4170fbb-deeb-4a17-9658-40dfcf6c1598" />
+<img width="1440" height="900" alt="Screenshot 2026-06-07 at 17 13 39" src="https://github.com/user-attachments/assets/689cabcf-3d7b-45a6-980c-a2e0ae3b3824" />
+<img width="1440" height="900" alt="Screenshot 2026-06-07 at 17 14 08" src="https://github.com/user-attachments/assets/3d6d1fd4-e448-4585-8a36-597d8b5fd907" />
+<img width="1440" height="900" alt="Screenshot 2026-06-07 at 17 14 08" src="https://github.com/user-attachments/assets/9c059ff6-0740-44e7-b40e-de52ef3f4c84" />
+
 
 1. Login admin
 2. Dashboard ringkasan penjualan
@@ -19,7 +23,7 @@ Project Laravel untuk tugas Pemrograman Web Lanjut Pertemuan 11.
 6. Detail invoice dan cetak invoice
 7. Export laporan transaksi ke Excel (.xlsx), CSV (.csv), dan SQL (.sql)
 
-## Catatan implementasi export
+## Update PT 11 Pak Sandy
 
 Fitur export ditempatkan pada modul Penjualan karena modul ini merupakan modul transaksi utama.
 Export dibuat server-side dari database agar data yang diunduh sesuai dengan data transaksi yang tersimpan dan mengikuti filter pencarian.
@@ -28,7 +32,7 @@ Export dibuat server-side dari database agar data yang diunduh sesuai dengan dat
 - CSV: untuk pertukaran data ringan.
 - SQL: untuk backup sederhana data transaksi penjualan dan detail item.
 
-## Cara menjalankan lokal
+## lokal
 
 ```bash
 composer install
@@ -39,14 +43,3 @@ php artisan migrate --seed
 npm run dev
 php artisan serve
 ```
-
-Akun demo seeder:
-
-```text
-Email: admin@septian.test
-Password: password
-```
-
-## Catatan asset tampilan
-
-Project ini sudah memakai asset statis di `public/css/app.css` dan `public/js/app.js`, sehingga tidak wajib menjalankan Vite saat upload ke hosting. Jika Anda tetap ingin mengembangkan tampilan melalui `resources/css/app.css` atau `resources/js/app.js`, salin hasil perubahannya ke folder `public/css` dan `public/js` sebelum upload.
