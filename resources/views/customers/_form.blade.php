@@ -4,6 +4,14 @@
         @method($method)
     @endif
 
+    <div class="form-header">
+        <div>
+            <span class="eyebrow">Form pelanggan</span>
+            <h3>Informasi kontak customer</h3>
+        </div>
+        <p>Simpan identitas, kontak, tipe pelanggan, alamat, dan catatan singkat untuk mendukung pencatatan transaksi.</p>
+    </div>
+
     <div class="form-grid">
         <label>
             Nama Pelanggan

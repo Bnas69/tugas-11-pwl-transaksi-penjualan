@@ -10,6 +10,14 @@
         $oldQuantities = old('quantities', [1]);
     @endphp
 
+    <section class="page-intro">
+        <div>
+            <span class="eyebrow">Input transaksi</span>
+            <h2>Catat penjualan baru</h2>
+        </div>
+        <p>Pilih pelanggan, susun item pembelian, lalu sistem menghitung subtotal, total akhir, dan kembalian secara otomatis.</p>
+    </section>
+
     <form class="sales-form" method="POST" action="{{ route('penjualan.store') }}" data-sale-form>
         @csrf
 
@@ -102,6 +110,13 @@
 
         <section class="checkout-grid">
             <div class="form-card">
+                <div class="form-header compact">
+                    <div>
+                        <span class="eyebrow">Pembayaran</span>
+                        <h3>Diskon dan pembayaran</h3>
+                    </div>
+                </div>
+
                 <label>
                     Diskon
                     <input type="number" name="discount" value="{{ old('discount', 0) }}" min="0" step="100" data-discount-input>
@@ -120,6 +135,7 @@
 
             <aside class="checkout-card">
                 <span class="eyebrow">Ringkasan</span>
+                <h3>Total transaksi</h3>
                 <div>
                     <span>Subtotal</span>
                     <strong data-subtotal>Rp 0</strong>

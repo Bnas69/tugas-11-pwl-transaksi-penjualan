@@ -5,6 +5,14 @@
 @section('eyebrow', 'Master Data')
 
 @section('content')
+    <section class="page-intro">
+        <div>
+            <span class="eyebrow">Kelola katalog</span>
+            <h2>Data produk siap jual</h2>
+        </div>
+        <p>Gunakan halaman ini untuk memantau SKU, kategori, harga, stok, dan status produk tanpa mengubah alur data utama.</p>
+    </section>
+
     <section class="toolbar-card">
         <form class="search-form" method="GET" action="{{ route('produk.index') }}">
             <input type="search" name="cari" value="{{ $search }}" placeholder="Cari SKU, nama, atau kategori produk">
@@ -29,19 +37,19 @@
                 <tbody>
                     @forelse ($products as $product)
                         <tr>
-                            <td>
+                            <td data-label="Produk">
                                 <strong>{{ $product->name }}</strong>
                                 <small>{{ $product->sku }}</small>
                             </td>
-                            <td>{{ $product->category ?? '-' }}</td>
-                            <td>Rp {{ number_format($product->selling_price, 0, ',', '.') }}</td>
-                            <td>{{ $product->stock }} {{ $product->unit }}</td>
-                            <td>
+                            <td data-label="Kategori">{{ $product->category ?? '-' }}</td>
+                            <td data-label="Harga Jual">Rp {{ number_format($product->selling_price, 0, ',', '.') }}</td>
+                            <td data-label="Stok">{{ $product->stock }} {{ $product->unit }}</td>
+                            <td data-label="Status">
                                 <span class="badge {{ $product->is_active ? 'badge-green' : 'badge-muted' }}">
                                     {{ $product->is_active ? 'Aktif' : 'Nonaktif' }}
                                 </span>
                             </td>
-                            <td>
+                            <td data-label="Aksi">
                                 <div class="row-actions">
                                     <a href="{{ route('produk.edit', $product) }}">Edit</a>
                                     <form method="POST" action="{{ route('produk.destroy', $product) }}" onsubmit="return confirm('Hapus atau nonaktifkan produk ini?')">

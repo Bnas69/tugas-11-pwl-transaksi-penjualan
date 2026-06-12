@@ -4,6 +4,14 @@
         @method($method)
     @endif
 
+    <div class="form-header">
+        <div>
+            <span class="eyebrow">Form produk</span>
+            <h3>Informasi katalog barang</h3>
+        </div>
+        <p>Lengkapi data SKU, harga, stok, dan status produk agar modul transaksi membaca data yang benar.</p>
+    </div>
+
     <div class="form-grid">
         <label>
             SKU Produk

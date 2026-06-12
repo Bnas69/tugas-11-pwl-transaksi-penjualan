@@ -12,7 +12,11 @@
                 <h2>{{ $sale->invoice_number }}</h2>
                 <p>{{ $sale->sale_date->format('d M Y') }} - {{ $sale->payment_method }}</p>
             </div>
-            <button class="secondary-button no-print" type="button" onclick="window.print()">Cetak</button>
+            <div class="invoice-brand">
+                <strong>Kelvin Sales Admin</strong>
+                <small>Kelvin Maulana - 411232020</small>
+                <button class="secondary-button no-print" type="button" onclick="window.print()">Cetak</button>
+            </div>
         </div>
 
         <div class="invoice-meta">
@@ -23,7 +27,7 @@
             </div>
             <div>
                 <span>Admin</span>
-                <strong>{{ $sale->user->name ?? 'Admin' }}</strong>
+                <strong>Kelvin Maulana</strong>
                 <small>{{ $sale->status }}</small>
             </div>
         </div>
@@ -66,5 +70,10 @@
         @if ($sale->notes)
             <p class="invoice-note">{{ $sale->notes }}</p>
         @endif
+
+        <div class="invoice-footer">
+            <span>Pemrograman Web Lanjut</span>
+            <strong>Kelvin Maulana - 411232020</strong>
+        </div>
     </section>
 @endsection

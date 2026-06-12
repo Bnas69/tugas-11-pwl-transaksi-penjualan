@@ -18,11 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $adminEmail = env('SEED_ADMIN_EMAIL', 'admin@test.com');
+        $adminPassword = env('SEED_ADMIN_PASSWORD');
+
+        if (! is_string($adminPassword) || $adminPassword === '') {
+            throw new \RuntimeException('SEED_ADMIN_PASSWORD harus diisi di file .env sebelum menjalankan db:seed.');
+        }
+
         $admin = User::updateOrCreate(
-            ['email' => 'admin@septian.test'],
+            ['email' => $adminEmail],
             [
-                'name' => 'Septian Dwi Saputra',
-                'password' => 'password',
+                'name' => 'Kelvin Maulana',
+                'password' => $adminPassword,
                 'role' => 'admin',
             ]
         );

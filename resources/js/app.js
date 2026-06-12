@@ -85,9 +85,36 @@ function bootSaleForm() {
 function bootSidebar() {
     const button = document.querySelector('[data-sidebar-toggle]');
     const sidebar = document.querySelector('#sidebar');
+    const closeTargets = document.querySelectorAll('[data-sidebar-close]');
 
     button?.addEventListener('click', () => {
-        sidebar?.classList.toggle('open');
+        const isOpen = !sidebar?.classList.contains('open');
+
+        sidebar?.classList.toggle('open', isOpen);
+        document.body.classList.toggle('sidebar-open', isOpen);
+    });
+
+    closeTargets.forEach((target) => {
+        target.addEventListener('click', () => {
+            sidebar?.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        });
+    });
+
+    sidebar?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 1120) {
+                sidebar.classList.remove('open');
+                document.body.classList.remove('sidebar-open');
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            sidebar?.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
+        }
     });
 }
 

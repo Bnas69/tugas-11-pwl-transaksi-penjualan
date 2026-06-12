@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title', 'Dashboard') - {{ config('app.name', 'SalesLab PWL') }}</title>
+        <title>@yield('title', 'Dashboard') - {{ config('app.name', 'Kelvin Sales Admin') }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|plus-jakarta-sans:400,500,600,700" rel="stylesheet" />
@@ -16,48 +16,66 @@
         @auth
             @php
                 $navItems = [
-                    ['label' => 'Dashboard', 'route' => 'dashboard', 'pattern' => 'dashboard', 'icon' => 'DS'],
-                    ['label' => 'Produk', 'route' => 'produk.index', 'pattern' => 'produk.*', 'icon' => 'PR'],
-                    ['label' => 'Pelanggan', 'route' => 'pelanggan.index', 'pattern' => 'pelanggan.*', 'icon' => 'PL'],
-                    ['label' => 'Penjualan', 'route' => 'penjualan.index', 'pattern' => 'penjualan.*', 'icon' => 'PJ'],
+                    ['label' => 'Dashboard', 'route' => 'dashboard', 'pattern' => 'dashboard', 'icon' => 'D', 'hint' => 'Ringkasan'],
+                    ['label' => 'Produk', 'route' => 'produk.index', 'pattern' => 'produk.*', 'icon' => 'P', 'hint' => 'Master barang'],
+                    ['label' => 'Pelanggan', 'route' => 'pelanggan.index', 'pattern' => 'pelanggan.*', 'icon' => 'C', 'hint' => 'Relasi customer'],
+                    ['label' => 'Penjualan', 'route' => 'penjualan.index', 'pattern' => 'penjualan.*', 'icon' => 'T', 'hint' => 'Transaksi'],
                 ];
             @endphp
 
             <div class="app-frame">
+                <div class="sidebar-scrim" data-sidebar-close></div>
+
                 <aside class="sidebar" id="sidebar">
-                    <a href="{{ route('dashboard') }}" class="brand-lockup">
-                        <span class="brand-mark">SL</span>
-                        <span>
-                            <strong>SalesLab</strong>
-                            <small>Admin Penjualan</small>
-                        </span>
-                    </a>
+                    <div class="sidebar-head">
+                        <a href="{{ route('dashboard') }}" class="brand-lockup">
+                            <span class="brand-mark">KM</span>
+                            <span>
+                                <strong>Kelvin Sales</strong>
+                                <small>Academic Admin Panel</small>
+                            </span>
+                        </a>
+
+                        <button class="sidebar-close" type="button" data-sidebar-close aria-label="Tutup menu">X</button>
+                    </div>
 
                     <nav class="nav-stack">
+                        <span class="nav-caption">Menu utama</span>
                         @foreach ($navItems as $item)
                             <a href="{{ route($item['route']) }}" class="nav-link {{ request()->routeIs($item['pattern']) ? 'active' : '' }}">
                                 <span>{{ $item['icon'] }}</span>
-                                {{ $item['label'] }}
+                                <b>{{ $item['label'] }}</b>
+                                <small>{{ $item['hint'] }}</small>
                             </a>
                         @endforeach
                     </nav>
 
                     <div class="student-card">
-                        <span>Tugas PWL</span>
-                        <strong>Septian Dwi Saputra</strong>
-                        <small>411232056 - Teknik Informatika</small>
+                        <span>Identitas mahasiswa</span>
+                        <strong>Kelvin Maulana</strong>
+                        <small>411232020 - Teknik Informatika</small>
                     </div>
                 </aside>
 
                 <main class="main-panel">
                     <header class="topbar">
-                        <button class="menu-button" type="button" data-sidebar-toggle>Menu</button>
-                        <div>
+                        <button class="menu-button" type="button" data-sidebar-toggle aria-label="Buka menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+
+                        <div class="page-title-block">
                             <p class="eyebrow">@yield('eyebrow', 'Universitas Dian Nusantara')</p>
                             <h1>@yield('page-title', 'Dashboard Admin')</h1>
                         </div>
+
                         <div class="topbar-actions">
-                            <span class="admin-pill">{{ auth()->user()->name }}</span>
+                            <span class="admin-pill">
+                                <small>Mahasiswa</small>
+                                Kelvin Maulana
+                            </span>
+                            <span class="student-pill">Kelvin Maulana - 411232020</span>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="ghost-button" type="submit">Keluar</button>
@@ -80,7 +98,14 @@
                         </div>
                     @endif
 
-                    @yield('content')
+                    <div class="content-stack">
+                        @yield('content')
+                    </div>
+
+                    <footer class="app-footer">
+                        <span>Kelvin Maulana - 411232020</span>
+                        <span>Pemrograman Web Lanjut</span>
+                    </footer>
                 </main>
             </div>
         @else

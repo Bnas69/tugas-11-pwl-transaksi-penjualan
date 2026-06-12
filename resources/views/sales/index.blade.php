@@ -5,6 +5,14 @@
 @section('eyebrow', 'Transaksi')
 
 @section('content')
+    <section class="page-intro">
+        <div>
+            <span class="eyebrow">Laporan transaksi</span>
+            <h2>Riwayat invoice penjualan</h2>
+        </div>
+        <p>Filter, export, dan cek detail transaksi dari satu halaman dengan tampilan yang lebih ringkas.</p>
+    </section>
+
     <section class="toolbar-card">
         <form class="search-form" method="GET" action="{{ route('penjualan.index') }}">
             <input type="search" name="cari" value="{{ $search }}" placeholder="Cari nomor invoice atau nama pelanggan">
@@ -35,15 +43,15 @@
                 <tbody>
                     @forelse ($sales as $sale)
                         <tr>
-                            <td>
+                            <td data-label="Invoice">
                                 <strong>{{ $sale->invoice_number }}</strong>
                                 <small>{{ $sale->status }}</small>
                             </td>
-                            <td>{{ $sale->sale_date->format('d M Y') }}</td>
-                            <td>{{ $sale->customer->name ?? 'Pelanggan umum' }}</td>
-                            <td><span class="badge badge-blue">{{ $sale->payment_method }}</span></td>
-                            <td>Rp {{ number_format($sale->grand_total, 0, ',', '.') }}</td>
-                            <td>
+                            <td data-label="Tanggal">{{ $sale->sale_date->format('d M Y') }}</td>
+                            <td data-label="Pelanggan">{{ $sale->customer->name ?? 'Pelanggan umum' }}</td>
+                            <td data-label="Pembayaran"><span class="badge badge-blue">{{ $sale->payment_method }}</span></td>
+                            <td data-label="Total">Rp {{ number_format($sale->grand_total, 0, ',', '.') }}</td>
+                            <td data-label="Aksi">
                                 <div class="row-actions">
                                     <a href="{{ route('penjualan.show', $sale) }}">Detail</a>
                                     <form method="POST" action="{{ route('penjualan.destroy', $sale) }}" onsubmit="return confirm('Batalkan transaksi dan kembalikan stok?')">

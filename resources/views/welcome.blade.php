@@ -4,15 +4,16 @@
 
 @section('content')
     <main class="landing-shell">
-        <section class="landing-card">
+        <section class="landing-panel">
             <div class="landing-copy">
                 <span class="eyebrow">Pemrograman Web Lanjut</span>
 
-                <h1>Manajemen Transaksi Penjualan</h1>
+                <h1>Kelvin Sales Admin</h1>
+                <p>Sistem manajemen penjualan sederhana untuk mengelola produk, pelanggan, transaksi, invoice, dan laporan export dalam satu dashboard akademik yang rapi.</p>
 
                 <div class="student-info">
-                    <span>Septian Dwi Saputra</span>
-                    <span>411232056</span>
+                    <span>Kelvin Maulana</span>
+                    <span>411232020</span>
                     <span>Pertemuan 11</span>
                 </div>
 
@@ -29,10 +30,14 @@
                 </div>
             </div>
 
-            <div class="module-orbit" aria-label="Profil aplikasi">
-                <div class="orbit-center">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo SalesLab">
-                    <span>SalesLab</span>
+            <div class="landing-visual" aria-label="Profil aplikasi">
+                <div class="campus-photo">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo Universitas Dian Nusantara">
+                </div>
+                <div class="module-summary">
+                    <span>Modul aktif</span>
+                    <strong>Produk, Pelanggan, Penjualan</strong>
+                    <small>Dashboard, invoice, export Excel, CSV, dan SQL.</small>
                 </div>
             </div>
         </section>
